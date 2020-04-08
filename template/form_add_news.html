@@ -1,0 +1,16 @@
+<form class="formularz" action="?action=Save&base=News" method="POST">
+	<input type="hidden" name="id" value="#id#">
+	<label for="is_active">widoczny dla niezalogowanych: </label><input name="is_active" type="checkbox" value="1"#is_active#>
+	<input type="text" name="name" value="#name#" placeholder="tytuł" autofocus>
+	<textarea id="editor" name="description" style="width: 100%; height: 400px;">#description#</textarea>
+	<input type="submit" value="Zapisz">
+</form>
+
+<script src="js/ckeditor5/ckeditor.js"></script>
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ))
+		.catch( err => {
+			console.error( err.stack );
+		});
+</script>

@@ -1,0 +1,47 @@
+<script src="js/Chart.js/Chart.min.js"></script>
+<script src="js/Chart.js/utils.js"></script>
+<div id="container" style="width: 100%; height: #count_array#px;">
+	<canvas id="canvas"></canvas>
+</div>
+
+<script>
+	var color = Chart.helpers.color;
+	var horizontalBarChartData = {
+		labels: [#country#],
+		datasets: [{
+			label: '',
+			backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+			borderColor: window.chartColors.red,
+			borderWidth: 1,
+			data: [
+				#no_person_from_country#
+			]
+		}]
+
+	};
+
+	window.onload = function() {
+		var ctx = document.getElementById('canvas').getContext('2d');
+		window.myHorizontalBar = new Chart(ctx, {
+			type: 'horizontalBar',
+			data: horizontalBarChartData,
+			options: {
+				maintainAspectRatio: false,
+				elements: {
+					rectangle: {
+						borderWidth: 2,
+					}
+				},
+				responsive: true,
+				legend: {
+					display: false,
+				},
+				title: {
+					display: true,
+					text: 'Ilość osób z danego kraju'
+				}
+			}
+		});
+
+	};
+</script>
